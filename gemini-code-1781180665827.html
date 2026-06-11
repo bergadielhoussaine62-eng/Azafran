@@ -4,159 +4,227 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Azafran Restaurant | مطعم أزعفران</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Poppins:wght@400;600&display=swap');
-        
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: #111111; color: #ffffff; font-family: 'Cairo', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Poppins:wght@300;400;600&display=swap');
+        .lang-ar { font-family: 'Cairo', sans-serif; }
         .lang-foreign { font-family: 'Poppins', sans-serif; }
-        
-        header { background-color: rgba(22, 22, 22, 0.95); position: fixed; top: 0; width: 100%; z-index: 100; border-b: 1px solid rgba(229, 169, 59, 0.1); padding: 15px 20px; }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; items-center; }
-        .logo { font-size: 24px; font-weight: bold; color: #e5a93b; }
-        
-        nav a { color: #ffffff; text-decoration: none; margin: 0 15px; font-size: 14px; transition: 0.3s; }
-        nav a:hover { color: #e5a93b; }
-        
-        .nav-actions { display: flex; items-center; gap: 15px; }
-        select { bg-color: #222; color: #e5a93b; border: 1px solid #e5a93b; padding: 5px; border-radius: 4px; cursor: pointer; }
-        .btn-book { background-color: #e5a93b; color: #000; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 14px; }
-        
-        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(17,17,17,0.7), #111111), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200') center/cover; padding: 0 20px; }
-        .hero-content { max-width: 800px; }
-        .hero h1 { font-size: 48px; margin-bottom: 20px; color: #fff; }
-        .hero p { font-size: 18px; color: #ccc; margin-bottom: 30px; line-height: 1.6; }
-        
-        .features { padding: 80px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
-        .grid { display: grid; grid-template-cols: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
-        .card { background-color: #161616; padding: 40px 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
-        .card i { font-size: 35px; color: #e5a93b; margin-bottom: 20px; }
-        .card h3 { margin-bottom: 15px; font-size: 20px; }
-        
-        .contact-section { padding: 80px 20px; background-color: #161616; text-align: center; }
-        .form-container { max-width: 500px; margin: 40px auto 0; background: #111; padding: 30px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
-        .form-group { margin-bottom: 20px; text-align: right; }
-        .form-group label { display: block; color: #aaa; margin-bottom: 8px; font-size: 14px; }
-        .form-group input { width: 100%; padding: 12px; background: #222; border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 4px; }
-        .btn-submit { width: 100%; background: #e5a93b; color: #000; padding: 12px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; font-size: 16px; }
-        
-        footer { padding: 30px; text-align: center; color: #555; background: #111; border-top: 1px solid rgba(255,255,255,0.05); }
+        html { scroll-behavior: smooth; }
     </style>
 </head>
-<body id="body-layout">
+<body class="bg-[#111111] text-gray-100 overflow-x-hidden lang-ar" id="body-layout">
 
-    <header>
-        <div class="nav-container">
-            <div class="logo">AZAFRAN</div>
-            <nav id="nav-links">
-                <a href="#" data-key="nav-home">الرئيسية</a>
-                <a href="#about" data-key="nav-about">شكون احنا</a>
-                <a href="#contact" data-key="nav-contact">احجز طاولتك</a>
+    <header class="w-full bg-[#161616]/90 backdrop-blur-md fixed top-0 z-50 border-b border-[#e5a93b]/10">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-[#e5a93b] tracking-wider uppercase" id="nav-logo">AZAFRAN</div>
+            
+            <nav class="hidden md:flex space-x-8 space-x-reverse text-sm font-medium" id="nav-links">
+                <a href="#home" data-key="nav-home" class="text-[#e5a93b] hover:text-[#ffca68] transition">الرئيسية</a>
+                <a href="#about" data-key="nav-about" class="hover:text-[#e5a93b] transition">شكون احنا</a>
+                <a href="#menu" data-key="nav-menu" class="hover:text-[#e5a93b] transition">المينو</a>
+                <a href="#events" data-key="nav-events" class="hover:text-[#e5a93b] transition">المناسبات</a>
             </nav>
-            <div class="nav-actions">
-                <select id="lang-select">
-                    <option value="ar">عربي / Darija</option>
+
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <select id="lang-select" class="bg-[#222] text-[#e5a93b] border border-[#e5a93b]/30 rounded px-2 py-1 text-xs cursor-pointer focus:outline-none">
+                    <option value="ar">Darija / عـربي</option>
                     <option value="fr">Français</option>
                     <option value="en">English</option>
                     <option value="es">Español</option>
                 </select>
-                <a href="#contact" data-key="btn-book" class="btn-book">احجز طاولتك</a>
+                <a href="#contact" data-key="btn-book" class="bg-[#e5a93b] text-black font-bold px-4 py-2 rounded text-xs hover:bg-[#ffca68] transition shadow-lg shadow-[#e5a93b]/20">احجز طاولتك</a>
             </div>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1 id="hero-title">Azafran Restaurant</h1>
-            <p data-key="hero-desc">المذاق البنين لي كتستاهل، والراحة العائلية لي كتقلب عليها. ماكلة في المتناول، أجواء هادئة، وفضاء خاص ومأمن للدراري الصغار فين يلعبوا مرتاحين.</p>
-        </div>
-    </section>
-
-    <section id="about" class="features">
-        <h2 data-key="feat-title">علاش تختار Azafran؟</h2>
-        <div class="grid">
-            <div class="card">
-                <i class="fa-solid fa-child"></i>
-                <h3 data-key="feat-1-h">فضاء للأطفال</h3>
-                <p data-key="feat-1-p">بلاصا خاصة ومأمنة لوليداتكم فين يلعبوا ويفوجوا، باش نتا تجلس وتآكل مرتاح.</p>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-wallet"></i>
-                <h3 data-key="feat-2-h">أثمنة في المتناول</h3>
-                <p data-key="feat-2-p">الجودة والنقا والمداق الرفيع بأثمنة مناسبة ومدروسة كتعجب كاع العائلات.</p>
+    <section id="home" class="relative h-screen flex items-center justify-center bg-cover bg-center pt-16" style="background-image: linear-gradient(to bottom, rgba(17,17,17,0.7), #111111), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200');">
+        <div class="text-center px-4 max-w-3xl">
+            <span data-key="hero-welcome" class="text-[#e5a93b] text-sm font-bold tracking-widest uppercase block mb-3">مرحبا بكم في café-restaurant</span>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">Azafran Restaurant</h1>
+            <p data-key="hero-desc" class="text-gray-300 text-lg md:text-xl mb-8 leading-relaxed">
+                المذاق البنين لي كتستاهل، والراحة العائلية لي كتقلب عليها. ماكلة في المتناول، أجواء هادئة، وفضاء خاص ومأمن للدراري الصغار فين يلعبوا مرتاحين.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#menu" data-key="hero-btn-menu" class="bg-[#e5a93b] text-black font-bold px-8 py-3 rounded-md hover:bg-[#ffca68] transition text-center shadow-lg shadow-[#e5a93b]/20">شوف المينو ديالنا</a>
+                <a href="#events" data-key="hero-btn-events" class="border border-white/20 text-white font-bold px-8 py-3 rounded-md hover:bg-white/10 transition text-center">نظم حفلتك معانا</a>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="contact-section">
-        <h2 data-key="contact-title">احجز طاولتك دابا</h2>
-        <div class="form-container">
-            <form onsubmit="event.preventDefault(); alert('تم استلام حجزكم بنجاح!');">
-                <div class="form-group">
-                    <label data-key="form-name">الاسم الكامل</label>
-                    <input type="text" required>
-                </div>
-                <div class="form-group">
-                    <label data-key="form-phone">رقم الهاتف</label>
-                    <input type="tel" required>
-                </div>
-                <button type="submit" data-key="form-btn" class="btn-submit">تأكيد الحجز</button>
-            </form>
+    <section id="about" class="py-20 px-4 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 data-key="feat-title" class="text-3xl font-bold text-white mb-4">علاش تختار Azafran؟</h2>
+            <div class="h-1 w-20 bg-[#e5a93b] mx-auto rounded"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div class="bg-[#161616] p-8 rounded-xl border border-white/5 hover:border-[#e5a93b]/30 transition group">
+                <div class="w-16 h-16 bg-[#e5a93b]/10 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fa-solid fa-child text-2xl text-[#e5a93b]"></i></div>
+                <h3 data-key="feat-1-h" class="text-xl font-bold text-white mb-3">فضاء للأطفال</h3>
+                <p data-key="feat-1-p" class="text-gray-400 text-sm leading-relaxed">بلاصا خاصة ومأمنة لوليداتكم فين يلعبوا ويفوجوا، باش نتا تجلس وتآكل وتجمع فـ كالم وراسك مرتاح.</p>
+            </div>
+            <div class="bg-[#161616] p-8 rounded-xl border border-white/5 hover:border-[#e5a93b]/30 transition group">
+                <div class="w-16 h-16 bg-[#e5a93b]/10 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fa-solid fa-wallet text-2xl text-[#e5a93b]"></i></div>
+                <h3 data-key="feat-2-h" class="text-xl font-bold text-white mb-3">أثمنة في المتناول</h3>
+                <p data-key="feat-2-p" class="text-gray-400 text-sm leading-relaxed">الجودة والنقا والمداق الرفيع بأثمنة مناسبة ومدروسة كتعجب كاع العائلات والزبناء ديالنا.</p>
+            </div>
+            <div class="bg-[#161616] p-8 rounded-xl border border-white/5 hover:border-[#e5a93b]/30 transition group">
+                <div class="w-16 h-16 bg-[#e5a93b]/10 rounded-full flex items-center justify-center mx-auto mb-6"><i class="fa-solid fa-cake-candles text-2xl text-[#e5a93b]"></i></div>
+                <h3 data-key="feat-3-h" class="text-xl font-bold text-white mb-3">الحفلات والمناسبات</h3>
+                <p data-key="feat-3-p" class="text-gray-400 text-sm leading-relaxed">مستعدين نضمو ليكم أعياد الميلاد، حفلات التخرج، واللقاءات العائلية بديكور وتنظيم كيحمر الوجه.</p>
+            </div>
         </div>
     </section>
 
-    <footer>
+    <section id="menu" class="py-20 bg-[#161616] px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 data-key="menu-title" class="text-3xl font-bold text-white mb-4">اكتشف المينو ديالنا</h2>
+                <p data-key="menu-subtitle" class="text-gray-400 text-sm">أطباق شهية ومصاوبة بحب</p>
+                <div class="h-1 w-20 bg-[#e5a93b] mx-auto rounded mt-4"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-[#111] rounded-xl overflow-hidden border border-white/5">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=400" class="w-full h-48 object-cover" alt="Plat">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 data-key="dish-1-name" class="font-bold text-lg text-white">طاجين مغربي بالبرقوق</h3>
+                            <span class="text-[#e5a93b] font-bold">75 DH</span>
+                        </div>
+                        <p data-key="dish-1-desc" class="text-gray-400 text-xs leading-relaxed">لحم غنمي فتي مع البرقـوق المعسل واللوز المقرمش، المذاق الأصيل.</p>
+                    </div>
+                </div>
+                <div class="bg-[#111] rounded-xl overflow-hidden border border-white/5">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=400" class="w-full h-48 object-cover" alt="Pizza">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 data-key="dish-2-name" class="font-bold text-lg text-white">بيتزا أزعفران الخاصة</h3>
+                            <span class="text-[#e5a93b] font-bold">50 DH</span>
+                        </div>
+                        <p data-key="dish-2-desc" class="text-gray-400 text-xs leading-relaxed">عجينة رقيقة، صلصة طماطم فريش، أجبان ممتازة مع قطع الدجاج المتبل.</p>
+                    </div>
+                </div>
+                <div class="bg-[#111] rounded-xl overflow-hidden border border-white/5">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=400" class="w-full h-48 object-cover" alt="Burger">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 data-key="dish-3-name" class="font-bold text-lg text-white">برغر عائلي مميز</h3>
+                            <span class="text-[#e5a93b] font-bold">45 DH</span>
+                        </div>
+                        <p data-key="dish-3-desc" class="text-gray-400 text-xs leading-relaxed">لحم بقري مشوي، جبن شيدر ذائب، الخس الطازج وصلصتنا السرية.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="events" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <span data-key="ev-sub" class="text-[#e5a93b] text-sm font-bold tracking-wider uppercase">فرحتكم فرحتنا</span>
+                <h2 data-key="ev-title" class="text-3xl md:text-4xl font-bold text-white mt-2 mb-6">احفل وتخرج ونشط معانا فـ Azafran</h2>
+                <p data-key="ev-desc" class="text-gray-300 mb-6 leading-relaxed">
+                    من غير الماكلة والهدوء اليومي، ريسطو أزعفران كيقدم ليكم خدمة تنظيم الحفلات. سواء كان عيد ميلاد، حفل تخرج، أو أي مناسبة زوينة بغيتي تشاركها مع أحبابك.
+                </p>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=80&w=600" class="rounded-lg shadow-lg object-cover h-48 w-full" alt="حفلة">
+                <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=600" class="rounded-lg shadow-lg object-cover h-48 w-full mt-6" alt="عيد ميلاد">
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 text-center text-gray-500 text-sm border-t border-white/5 bg-[#111]">
         <p>&copy; 2026 Azafran Restaurant. <span data-key="footer-rights">كاع الحقوق محفوظة.</span></p>
     </footer>
 
     <script>
         const translations = {
             ar: {
-                "nav-home": "الرئيسية", "nav-about": "شكون احنا", "nav-contact": "احجز طاولتك", "btn-book": "احجز طاولتك",
+                "nav-home": "الرئيسية", "nav-about": "شكون احنا", "nav-menu": "المينو", "nav-events": "المناسبات",
+                "btn-book": "احجز طاولتك", "hero-welcome": "مرحبا بكم في café-restaurant",
                 "hero-desc": "المذاق البنين لي كتستاهل، والراحة العائلية لي كتقلب عليها. ماكلة في المتناول، أجواء هادئة، وفضاء خاص ومأمن للدراري الصغار فين يلعبوا مرتاحين.",
-                "feat-title": "علاش تختار Azafran؟", "feat-1-h": "فضاء للأطفال", "feat-1-p": "بلاصا خاصة ومأمنة لوليداتكم فين يلعبوا ويفوجوا، باش نتا تجلس وتآكل مرتاح.",
-                "feat-2-h": "أثمنة في المتناول", "feat-2-p": "الجودة والنقا والمداق الرفيع بأثمنة مناسبة ومدروسة كتعجب كاع العائلات.",
-                "contact-title": "احجز طاولتك دابا", "form-name": "الاسم الكامل", "form-phone": "رقم الهاتف", "form-btn": "تأكيد الحجز", "footer-rights": "كاع الحقوق محفوظة."
+                "hero-btn-menu": "شوف المينو ديالنا", "hero-btn-events": "نظم حفلتك معانا",
+                "feat-title": "علاش تختار Azafran؟", "feat-1-h": "فضاء للأطفال", "feat-1-p": "بلاصا خاصة ومأمنة لوليداتكم فين يلعبوا ويفوجوا، باش نتا تجلس وتآكل وتجمع فـ كالم وراسك مرتاح.",
+                "feat-2-h": "أثمنة في المتناول", "feat-2-p": "الجودة والنقا والمداق الرفيع بأثمنة مناسبة ومدروسة كتعجب كاع العائلات والزبناء ديالنا.",
+                "feat-3-h": "الحفلات والمناسبات", "feat-3-p": "مستعدين نضمو ليكم أعياد الميلاد، حفلات التخرج، واللقاءات العائلية بديكور وتنظيم كيحمر الوجه.",
+                "menu-title": "اكتشف المينو ديالنا", "menu-subtitle": "أطباق شهية ومصاوبة بحب",
+                "dish-1-name": "طاجين مغربي بالبرقوق", "dish-1-desc": "لحم غنمي فتي مع البرقـوق المعسل واللوز المقرمش، المذاق الأصيل.",
+                "dish-2-name": "بيتزا أزعفران الخاصة", "dish-2-desc": "عجينة رقيقة، صلصة طماطم فريش، أجبان ممتازة مع قطع الدجاج المتبل.",
+                "dish-3-name": "برغر عائلي مميز", "dish-3-desc": "لحم بقري مشوي، جبن شيدر ذائب، الخس الطازج وصلصتنا السرية.",
+                "ev-sub": "فرحتكم فرحتنا", "ev-title": "احفل وتخرج ونشط معانا فـ Azafran", "ev-desc": "من غير الماكلة والهدوء اليومي، ريسطو أزعفران كيقدم ليكم خدمة تنظيم الحفلات. سواء كان عيد ميلاد، حفل تخرج، أو أي مناسبة زوينة بغيتي تشاركها مع أحبابك.",
+                "footer-rights": "كاع الحقوق محفوظة."
             },
             fr: {
-                "nav-home": "Accueil", "nav-about": "À Propos", "nav-contact": "Contact", "btn-book": "Réserver",
-                "hero-desc": "Le goût savoureux que vous méritez et le confort familial que vous recherchez. Des prix abordables, une ambiance calme et un espace sécurisé pour vos enfants.",
-                "feat-title": "Pourquoi choisir Azafran ?", "feat-1-h": "Espace Enfants", "feat-1-p": "Un espace dédié et sécurisé pour vos enfants, pour profiter de votre repas en toute tranquillité.",
+                "nav-home": "Accueil", "nav-about": "À Propos", "nav-menu": "Menu", "nav-events": "Événements",
+                "btn-book": "Réserver", "hero-welcome": "Bienvenue au café-restaurant",
+                "hero-desc": "Le goût savoureux que vous méritez et le confort familial que vous recherchez. Des prix abordables, une ambiance calme et un espace de jeux sécurisé pour vos enfants.",
+                "hero-btn-menu": "Voir le Menu", "hero-btn-events": "Organiser votre fête",
+                "feat-title": "Pourquoi choisir Azafran ?", "feat-1-h": "Espace Enfants", "feat-1-p": "Un espace dédié et sécurisé pour vos enfants, pour que vous puissiez profiter de votre repas en toute tranquillité.",
                 "feat-2-h": "Prix Abordables", "feat-2-p": "Une qualité supérieure et des saveurs exceptionnelles à des prix étudiés pour toutes les familles.",
-                "contact-title": "Réservez une Table", "form-name": "Nom Complet", "form-phone": "Téléphone", "form-btn": "Confirmer", "footer-rights": "Tous droits réservés."
+                "feat-3-h": "Fêtes & Événements", "feat-3-p": "Nous organisons vos anniversaires, fêtes de remise de diplômes et réunions familiales avec une décoration chaleureuse.",
+                "menu-title": "Découvrez Notre Menu", "menu-subtitle": "Des plats délicieux préparés avec amour",
+                "dish-1-name": "Tajine Marocain aux Pruneaux", "dish-1-desc": "Viande d'agneau tendre, pruneaux caramélisés et amandes croquantes.",
+                "dish-2-name": "Pizza Spéciale Azafran", "dish-2-desc": "Pâte fine, sauce tomate fraîche, fromage premium et poulet mariné.",
+                "dish-3-name": "Burger Familial Premium", "dish-3-desc": "Bœuf grillé, cheddar fondu, laitue fraîche et notre sauce secrète.",
+                "ev-sub": "Votre joie est la nôtre", "ev-title": "Célébrez vos moments forts chez Azafran", "ev-desc": "En plus de notre cuisine, nous proposons un service complet d'organisation d'événements : anniversaires, remises de diplômes, et fêtes familiales.",
+                "footer-rights": "Tous droits réservés."
             },
             en: {
-                "nav-home": "Home", "nav-about": "About Us", "nav-contact": "Contact", "btn-book": "Book Table",
+                "nav-home": "Home", "nav-about": "About Us", "nav-menu": "Menu", "nav-events": "Events",
+                "btn-book": "Book a Table", "hero-welcome": "Welcome to café-restaurant",
                 "hero-desc": "The delicious taste you deserve and the family comfort you seek. Affordable food, a peaceful atmosphere, and a safe play area for your kids.",
-                "feat-title": "Why Choose Azafran?", "feat-1-h": "Kids Play Area", "feat-1-p": "A secure space for your children to play, allowing you to relax and enjoy your meal.",
+                "hero-btn-menu": "View Menu", "hero-btn-events": "Plan Your Event",
+                "feat-title": "Why Choose Azafran?", "feat-1-h": "Kids Play Area", "feat-1-p": "A secure space for your children to play, allowing you to relax and enjoy your meal peacefully.",
                 "feat-2-h": "Affordable Prices", "feat-2-p": "Premium quality and excellent flavors at well-studied prices that suit all families.",
-                "contact-title": "Book Your Table", "form-name": "Full Name", "form-phone": "Phone Number", "form-btn": "Confirm", "footer-rights": "All rights reserved."
+                "feat-3-h": "Parties & Events", "feat-3-p": "Ready to host birthdays, graduation parties, and family gatherings with stunning decorations.",
+                "menu-title": "Discover Our Menu", "menu-subtitle": "Delicious dishes crafted with love",
+                "dish-1-name": "Moroccan Lamb Tajine", "dish-1-desc": "Tender lamb meat with caramelized prunes and crunchy almonds.",
+                "dish-2-name": "Azafran Special Pizza", "dish-2-desc": "Thin crust, fresh tomato sauce, premium cheeses, and marinated chicken.",
+                "dish-3-name": "Premium Family Burger", "dish-3-desc": "Grilled beef patty, melted cheddar, fresh lettuce, and our secret sauce.",
+                "ev-sub": "Your Joy is Ours", "ev-title": "Celebrate Your Milestones at Azafran", "ev-desc": "Beyond great food, Azafran provides full event planning services for birthdays, graduations, and private family gatherings.",
+                "footer-rights": "All rights reserved."
             },
             es: {
-                "nav-home": "Inicio", "nav-about": "Nosotros", "nav-contact": "Contacto", "btn-book": "Reservar",
+                "nav-home": "Inicio", "nav-about": "Nosotros", "nav-menu": "Menú", "nav-events": "Eventos",
+                "btn-book": "Reservar Mesa", "hero-welcome": "Bienvenidos al café-restaurante",
                 "hero-desc": "El delicioso sabor que mereces y el confort familiar que buscas. Comida asequible, un ambiente tranquilo y un área de juegos segura para tus hijos.",
+                "hero-btn-menu": "Ver Menú", "hero-btn-events": "Organiza tu Fiesta",
                 "feat-title": "¿Por qué elegir Azafran?", "feat-1-h": "Zona Infantil", "feat-1-p": "Un espacio seguro para que tus hijos jueguen, permitiéndote relajarte y disfrutar de tu comida.",
                 "feat-2-h": "Precios Asequibles", "feat-2-p": "Alta calidad y sabores excepcionales a precios diseñados para todas las familias.",
-                "contact-title": "Reserva una Mesa", "form-name": "Nombre Completo", "form-phone": "Teléfono", "form-btn": "Confirmar", "footer-rights": "Todos los derechos reservados."
+                "feat-3-h": "Eventos y Fiestas", "feat-3-p": "Listos para organizar cumpleaños, graduaciones y reuniones familiares con decoraciones increíbles.",
+                "menu-title": "Descubre Nuestro Menú", "menu-subtitle": "Deliciosos platos preparados con amor",
+                "dish-1-name": "Tajine Marroquí de Cordero", "dish-1-desc": "Tierna carne de cordero con ciruelas caramelizadas y almendras crujientes.",
+                "dish-2-name": "Pizza Especial Azafran", "dish-2-desc": "Masa fina, salsa de tomate fresca, quesos premium y pollo marinado.",
+                "dish-3-name": "Burger Familiar Premium", "dish-3-desc": "Carne de res a la parrilla, queso cheddar fundido, lechuga fresca y nuestra salsa secreta.",
+                "ev-sub": "Tu Alegría es la Nuestra", "ev-title": "Celebra tus Momentos en Azafran", "ev-desc": "Además de buena comida, Azafran ofrece servicios completos para cumpleaños, graduaciones y fiestas privadas.",
+                "footer-rights": "Todos los derechos reservados."
             }
         };
 
         const langSelect = document.getElementById('lang-select');
         const bodyLayout = document.getElementById('body-layout');
+        const navLinks = document.getElementById('nav-links');
 
         langSelect.addEventListener('change', (e) => {
             const lang = e.target.value;
+            
+            // تغيير اتجاه الموقع والخط حسب اللغة
             if (lang === 'ar') {
                 bodyLayout.setAttribute('dir', 'rtl');
-                bodyLayout.className = "";
+                bodyLayout.className = "bg-[#111111] text-gray-100 overflow-x-hidden lang-ar";
+                navLinks.className = "hidden md:flex space-x-8 space-x-reverse text-sm font-medium";
             } else {
                 bodyLayout.setAttribute('dir', 'ltr');
-                bodyLayout.className = "lang-foreign";
+                bodyLayout.className = "bg-[#111111] text-gray-100 overflow-x-hidden lang-foreign";
+                navLinks.className = "hidden md:flex space-x-8 text-sm font-medium";
             }
+
+            // تحديث كل النصوص
             document.querySelectorAll('[data-key]').forEach(element => {
                 const key = element.getAttribute('data-key');
-                if (translations[lang] && translations[lang][key]) {
+                if (translations[lang][key]) {
                     element.textContent = translations[lang][key];
                 }
             });
