@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Azafran Restaurant | مطعم أزعفران</title>
-    <!-- أيقونات FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Poppins:wght@400;600&display=swap');
@@ -13,68 +12,47 @@
         body { background-color: #111111; color: #ffffff; font-family: 'Cairo', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
         .lang-foreign { font-family: 'Poppins', sans-serif; }
         
-        /* المينو الفوقاني */
-        header { background-color: rgba(22, 22, 22, 0.95); position: fixed; top: 0; width: 100%; z-index: 100; border-bottom: 1px solid rgba(229, 169, 59, 0.1); padding: 15px 20px; }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 24px; font-weight: bold; color: #e5a93b; text-transform: uppercase; tracking-width: 1px; }
+        header { background-color: rgba(22, 22, 22, 0.95); position: fixed; top: 0; width: 100%; z-index: 100; border-b: 1px solid rgba(229, 169, 59, 0.1); padding: 15px 20px; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; items-center; }
+        .logo { font-size: 24px; font-weight: bold; color: #e5a93b; }
         
-        nav a { color: #ffffff; text-decoration: none; margin: 0 15px; font-size: 14px; transition: 0.3s; font-weight: bold; }
+        nav a { color: #ffffff; text-decoration: none; margin: 0 15px; font-size: 14px; transition: 0.3s; }
         nav a:hover { color: #e5a93b; }
         
-        .nav-actions { display: flex; align-items: center; gap: 15px; }
-        select { background-color: #222; color: #e5a93b; border: 1px solid #e5a93b; padding: 6px 10px; border-radius: 4px; cursor: pointer; font-weight: bold; outline: none; }
-        .btn-book { background-color: #e5a93b; color: #000; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 14px; transition: 0.3s; box-shadow: 0 4px 15px rgba(229, 169, 59, 0.2); }
-        .btn-book:hover { background-color: #ffca68; }
+        .nav-actions { display: flex; items-center; gap: 15px; }
+        select { bg-color: #222; color: #e5a93b; border: 1px solid #e5a93b; padding: 5px; border-radius: 4px; cursor: pointer; }
+        .btn-book { background-color: #e5a93b; color: #000; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 14px; }
         
-        /* واجهة الموقع */
-        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(17,17,17,0.75), #111111), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200') center/cover; padding: 0 20px; }
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(17,17,17,0.7), #111111), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200') center/cover; padding: 0 20px; }
         .hero-content { max-width: 800px; }
-        .hero span { color: #e5a93b; text-transform: uppercase; font-size: 14px; font-weight: bold; tracking-index: 2px; display: block; margin-bottom: 10px; }
-        .hero h1 { font-size: 48px; margin-bottom: 20px; color: #fff; font-weight: 700; }
-        .hero p { font-size: 18px; color: #ccc; margin-bottom: 30px; line-height: 1.8; }
+        .hero h1 { font-size: 48px; margin-bottom: 20px; color: #fff; }
+        .hero p { font-size: 18px; color: #ccc; margin-bottom: 30px; line-height: 1.6; }
         
-        /* المميزات */
-        .features { padding: 100px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
-        .section-title { font-size: 32px; color: #fff; margin-bottom: 10px; }
-        .underline { width: 60px; height: 3px; background-color: #e5a93b; margin: 0 auto 50px; border-radius: 2px; }
-        .grid { display: grid; grid-template-cols: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .card { background-color: #161616; padding: 40px 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.03); transition: 0.3s; }
-        .card:hover { border-color: rgba(229, 169, 59, 0.3); transform: translateY(-5px); }
-        .card i { font-size: 40px; color: #e5a93b; margin-bottom: 20px; }
-        .card h3 { margin-bottom: 15px; font-size: 22px; color: #fff; }
-        .card p { color: #aaa; font-size: 14px; line-height: 1.6; }
+        .features { padding: 80px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
+        .grid { display: grid; grid-template-cols: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .card { background-color: #161616; padding: 40px 20px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+        .card i { font-size: 35px; color: #e5a93b; margin-bottom: 20px; }
+        .card h3 { margin-bottom: 15px; font-size: 20px; }
         
-        /* سيكشن الحجز والاتصال */
-        .contact-section { padding: 100px 20px; background-color: #161616; text-align: center; border-top: 1px solid rgba(255,255,255,0.02); }
-        .form-container { max-width: 550px; margin: 40px auto 0; background: #111; padding: 40px 30px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .form-group { margin-bottom: 25px; }
-        /* لتغيير اتجاه العناوين حسب اللغة */
-        .align-dir { text-align: right; }
-        .align-dir-left { text-align: left; }
-        .form-group label { display: block; color: #ccc; margin-bottom: 10px; font-size: 14px; font-weight: bold; }
-        .form-group input { width: 100%; padding: 14px; background: #222; border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 6px; font-size: 15px; outline: none; transition: 0.3s; }
-        .form-group input:focus { border-color: #e5a93b; }
-        .btn-submit { width: 100%; background: #e5a93b; color: #000; padding: 14px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 16px; transition: 0.3s; box-shadow: 0 4px 15px rgba(229, 169, 59, 0.2); }
-        .btn-submit:hover { background-color: #ffca68; }
+        .contact-section { padding: 80px 20px; background-color: #161616; text-align: center; }
+        .form-container { max-width: 500px; margin: 40px auto 0; background: #111; padding: 30px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+        .form-group { margin-bottom: 20px; text-align: right; }
+        .form-group label { display: block; color: #aaa; margin-bottom: 8px; font-size: 14px; }
+        .form-group input { width: 100%; padding: 12px; background: #222; border: 1px solid rgba(255,255,255,0.1); color: #fff; border-radius: 4px; }
+        .btn-submit { width: 100%; background: #e5a93b; color: #000; padding: 12px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; font-size: 16px; }
         
-        footer { padding: 40px 20px; text-align: center; color: #666; background: #111; border-top: 1px solid rgba(255,255,255,0.05); font-size: 14px; }
-        
-        @media (max-width: 768px) {
-            nav { display: none; }
-            .hero h1 { font-size: 36px; }
-        }
+        footer { padding: 30px; text-align: center; color: #555; background: #111; border-top: 1px solid rgba(255,255,255,0.05); }
     </style>
 </head>
 <body id="body-layout">
 
-    <!-- المينو -->
     <header>
         <div class="nav-container">
             <div class="logo">AZAFRAN</div>
             <nav id="nav-links">
                 <a href="#" data-key="nav-home">الرئيسية</a>
                 <a href="#about" data-key="nav-about">شكون احنا</a>
-                <a href="#contact" data-key="nav-contact">اتصل بنا</a>
+                <a href="#contact" data-key="nav-contact">احجز طاولتك</a>
             </nav>
             <div class="nav-actions">
                 <select id="lang-select">
@@ -88,50 +66,39 @@
         </div>
     </header>
 
-    <!-- الواجهة -->
     <section class="hero">
         <div class="hero-content">
-            <span data-key="hero-welcome">مرحبا بكم في café-restaurant</span>
             <h1 id="hero-title">Azafran Restaurant</h1>
             <p data-key="hero-desc">المذاق البنين لي كتستاهل، والراحة العائلية لي كتقلب عليها. ماكلة في المتناول، أجواء هادئة، وفضاء خاص ومأمن للدراري الصغار فين يلعبوا مرتاحين.</p>
         </div>
     </section>
 
-    <!-- المميزات -->
     <section id="about" class="features">
-        <h2 class="section-title" data-key="feat-title">علاش تختار Azafran؟</h2>
-        <div class="underline"></div>
+        <h2 data-key="feat-title">علاش تختار Azafran؟</h2>
         <div class="grid">
             <div class="card">
                 <i class="fa-solid fa-child"></i>
                 <h3 data-key="feat-1-h">فضاء للأطفال</h3>
-                <p data-key="feat-1-p">بلاصا خاصة ومأمنة لوليداتكم فين يلعبوا ويفوجوا، باش نتا تجلس وتآكل وتجمع فـ كالم وراسك مرتاح.</p>
+                <p data-key="feat-1-p">بلاصا خاصة ومأمنة لوليداتكم فين يلعبوا ويفوجوا، باش نتا تجلس وتآكل مرتاح.</p>
             </div>
             <div class="card">
                 <i class="fa-solid fa-wallet"></i>
                 <h3 data-key="feat-2-h">أثمنة في المتناول</h3>
-                <p data-key="feat-2-p">الجودة والنقا والمداق الرفيع بأثمنة مناسبة ومدروسة كتعجب كاع العائلات والزبناء ديالنا.</p>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-cake-candles"></i>
-                <h3 data-key="feat-3-h">الحفلات والمناسبات</h3>
-                <p data-key="feat-3-p">مستعدين نضمو ليكم أعياد الميلاد، حفلات التخرج، واللقاءات العائلية بديكور وتنظيم كيحمر الوجه.</p>
+                <p data-key="feat-2-p">الجودة والنقا والمداق الرفيع بأثمنة مناسبة ومدروسة كتعجب كاع العائلات.</p>
             </div>
         </div>
     </section>
 
-    <!-- الحجز والاتصال -->
     <section id="contact" class="contact-section">
-        <h2 class="section-title" data-key="contact-title">احجز طاولتك أو تواصل معانا</h2>
-        <div class="underline"></div>
+        <h2 data-key="contact-title">احجز طاولتك دابا</h2>
         <div class="form-container">
-            <form onsubmit="event.preventDefault(); alert('تم استلام طلب الحجز بنجاح! سنقوم بالاتصال بكم قريباً.');">
+            <form onsubmit="event.preventDefault(); alert('تم استلام حجزكم بنجاح!');">
                 <div class="form-group">
-                    <label id="label-name" data-key="form-name" class="align-dir">الاسم الكامل</label>
+                    <label data-key="form-name">الاسم الكامل</label>
                     <input type="text" required>
                 </div>
                 <div class="form-group">
-                    <label id="label-phone" data-key="form-phone" class="align-dir">رقم الهاتف</label>
+                    <label data-key="form-phone">رقم الهاتف</label>
                     <input type="tel" required>
                 </div>
                 <button type="submit" data-key="form-btn" class="btn-submit">تأكيد الحجز</button>
@@ -139,76 +106,54 @@
         </div>
     </section>
 
-    <!-- الفوتر -->
     <footer>
         <p>&copy; 2026 Azafran Restaurant. <span data-key="footer-rights">كاع الحقوق محفوظة.</span></p>
     </footer>
 
-    <!-- سكربت الترجمة والاتجاهات -->
     <script>
         const translations = {
             ar: {
-                "nav-home": "الرئيسية", "nav-about": "شكون احنا", "nav-contact": "اتصل بنا", "btn-book": "احجز طاولتك",
-                "hero-welcome": "مرحبا بكم في café-restaurant",
+                "nav-home": "الرئيسية", "nav-about": "شكون احنا", "nav-contact": "احجز طاولتك", "btn-book": "احجز طاولتك",
                 "hero-desc": "المذاق البنين لي كتستاهل، والراحة العائلية لي كتقلب عليها. ماكلة في المتناول، أجواء هادئة، وفضاء خاص ومأمن للدراري الصغار فين يلعبوا مرتاحين.",
-                "feat-title": "علاش تختار Azafran؟", 
-                "feat-1-h": "فضاء للأطفال", "feat-1-p": "بلاصا خاصة ومأمنة لوليداتكم فين يلعبوا ويفوجوا، باش نتا تجلس وتآكل وتجمع فـ كالم وراسك مرتاح.",
-                "feat-2-h": "أثمنة في المتناول", "feat-2-p": "الجودة والنقا والمداق الرفيع بأثمنة مناسبة ومدروسة كتعجب كاع العائلات والزبناء ديالنا.",
-                "feat-3-h": "الحفلات والمناسبات", "feat-3-p": "مستعدين نضمو ليكم أعياد الميلاد، حفلات التخرج، واللقاءات العائلية بديكور وتنظيم كيحمر الوجه.",
-                "contact-title": "احجز طاولتك أو تواصل معانا", "form-name": "الاسم الكامل", "form-phone": "رقم الهاتف", "form-btn": "تأكيد الحجز", "footer-rights": "كاع الحقوق محفوظة."
+                "feat-title": "علاش تختار Azafran؟", "feat-1-h": "فضاء للأطفال", "feat-1-p": "بلاصا خاصة ومأمنة لوليداتكم فين يلعبوا ويفوجوا، باش نتا تجلس وتآكل مرتاح.",
+                "feat-2-h": "أثمنة في المتناول", "feat-2-p": "الجودة والنقا والمداق الرفيع بأثمنة مناسبة ومدروسة كتعجب كاع العائلات.",
+                "contact-title": "احجز طاولتك دابا", "form-name": "الاسم الكامل", "form-phone": "رقم الهاتف", "form-btn": "تأكيد الحجز", "footer-rights": "كاع الحقوق محفوظة."
             },
             fr: {
                 "nav-home": "Accueil", "nav-about": "À Propos", "nav-contact": "Contact", "btn-book": "Réserver",
-                "hero-welcome": "Bienvenue au café-restaurant",
                 "hero-desc": "Le goût savoureux que vous méritez et le confort familial que vous recherchez. Des prix abordables, une ambiance calme et un espace sécurisé pour vos enfants.",
-                "feat-title": "Pourquoi choisir Azafran ?", 
-                "feat-1-h": "Espace Enfants", "feat-1-p": "Un espace dédié et sécurisé pour vos enfants, pour profiter de votre repas en toute tranquillité.",
+                "feat-title": "Pourquoi choisir Azafran ?", "feat-1-h": "Espace Enfants", "feat-1-p": "Un espace dédié et sécurisé pour vos enfants, pour profiter de votre repas en toute tranquillité.",
                 "feat-2-h": "Prix Abordables", "feat-2-p": "Une qualité supérieure et des saveurs exceptionnelles à des prix étudiés pour toutes les familles.",
-                "feat-3-h": "Événements", "feat-3-p": "Prêt à organiser des anniversaires, des fêtes de remise de diplômes avec une belle décoration.",
                 "contact-title": "Réservez une Table", "form-name": "Nom Complet", "form-phone": "Téléphone", "form-btn": "Confirmer", "footer-rights": "Tous droits réservés."
             },
             en: {
                 "nav-home": "Home", "nav-about": "About Us", "nav-contact": "Contact", "btn-book": "Book Table",
-                "hero-welcome": "Welcome to café-restaurant",
                 "hero-desc": "The delicious taste you deserve and the family comfort you seek. Affordable food, a peaceful atmosphere, and a safe play area for your kids.",
-                "feat-title": "Why Choose Azafran?", 
-                "feat-1-h": "Kids Play Area", "feat-1-p": "A secure space for your children to play, allowing you to relax and enjoy your meal peacefully.",
+                "feat-title": "Why Choose Azafran?", "feat-1-h": "Kids Play Area", "feat-1-p": "A secure space for your children to play, allowing you to relax and enjoy your meal.",
                 "feat-2-h": "Affordable Prices", "feat-2-p": "Premium quality and excellent flavors at well-studied prices that suit all families.",
-                "feat-3-h": "Events & Parties", "feat-3-p": "Ready to host birthdays, graduation parties, and family gatherings with stunning decorations.",
                 "contact-title": "Book Your Table", "form-name": "Full Name", "form-phone": "Phone Number", "form-btn": "Confirm", "footer-rights": "All rights reserved."
             },
             es: {
                 "nav-home": "Inicio", "nav-about": "Nosotros", "nav-contact": "Contacto", "btn-book": "Reservar",
-                "hero-welcome": "Bienvenidos al café-restaurante",
                 "hero-desc": "El delicioso sabor que mereces y el confort familiar que buscas. Comida asequible, un ambiente tranquilo y un área de juegos segura para tus hijos.",
-                "feat-title": "¿Por qué elegir Azafran?", 
-                "feat-1-h": "Zona Infantil", "feat-1-p": "Un espacio seguro para que tus hijos jueguen, permitiéndote relajarte y disfrutar de tu comida.",
+                "feat-title": "¿Por qué elegir Azafran?", "feat-1-h": "Zona Infantil", "feat-1-p": "Un espacio seguro para que tus hijos jueguen, permitiéndote relajarte y disfrutar de tu comida.",
                 "feat-2-h": "Precios Asequibles", "feat-2-p": "Alta calidad y sabores excepcionales a precios diseñados para todas las familias.",
-                "feat-3-h": "Eventos y Fiestas", "feat-3-p": "Listos para organizar cumpleaños, graduaciones y reuniones familiares con decoraciones increíbles.",
                 "contact-title": "Reserva una Mesa", "form-name": "Nombre Completo", "form-phone": "Teléfono", "form-btn": "Confirmar", "footer-rights": "Todos los derechos reservados."
             }
         };
 
         const langSelect = document.getElementById('lang-select');
         const bodyLayout = document.getElementById('body-layout');
-        const labelName = document.getElementById('label-name');
-        const labelPhone = document.getElementById('label-phone');
 
         langSelect.addEventListener('change', (e) => {
             const lang = e.target.value;
-            
             if (lang === 'ar') {
                 bodyLayout.setAttribute('dir', 'rtl');
                 bodyLayout.className = "";
-                labelName.className = "align-dir";
-                labelPhone.className = "align-dir";
             } else {
                 bodyLayout.setAttribute('dir', 'ltr');
                 bodyLayout.className = "lang-foreign";
-                labelName.className = "align-dir-left";
-                labelPhone.className = "align-dir-left";
             }
-            
             document.querySelectorAll('[data-key]').forEach(element => {
                 const key = element.getAttribute('data-key');
                 if (translations[lang] && translations[lang][key]) {
